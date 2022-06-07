@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>LMDDGTFY</title>
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                display: table;
+                background-color: #1c1c1c;
+            }
+            img {
+                width: 10%;
+                height: 10%;
+            }
+
+            input {
+                background-color: #333333;
+                border-color: #333333;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                border-radius: 4px;
+                display: block;
+                position: relative;
+                height: 2.8em;
+                width: 30%;
+                border: 1px solid rgba(0, 0, 0, 0.15);
+                padding-left: 0.75em;
+                padding-right: 6.5em;
+                color: #eeeeee;
+            }
+
+            div {
+                transform: translateY(100%);
+            }
+        </style>
+    </head>
+
+    <body>
+        <center>
+            <div>
+                <img src="https://duckduckgo.com/assets/logo_homepage.alt.v108.svg" />
+                <br />
+                <br />
+                <br />
+                <br />
+              <input type="text" disabled></input>
+            </div>
+        </center>
+        <script>
+            window.q = new URLSearchParams(window.location.search).get("q");
+            async function typeSentence() {
+                const letters = q.split("");
+                let i = 0;
+                while (i < letters.length) {
+                    await waitForMs(100);
+                    document.getElementsByTagName("input")[0].value += letters[i];
+                    i++;
+                }
+                waitForMs(100);
+                window.location.href = "https://duckduckgo.com/?q=" + q;
+            }
+
+            function waitForMs(ms) {
+                return new Promise((resolve) => setTimeout(resolve, ms));
+            }
+
+            if (!q) {
+                window.location.href = "https://" + window.location.host;
+            } else {
+                typeSentence();
+            }
+        </script>
+    </body>
+</html>
