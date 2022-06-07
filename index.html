@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>LMGTFY</title>
+  <link rel="shortcut icon" href="https://duckduckgo.com/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="https://duckduckgo.com/assets/icons/meta/DDG-iOS-icon_60x60.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="https://duckduckgo.com/assets/icons/meta/DDG-iOS-icon_76x76.png" />
+  <link rel="apple-touch-icon" sizes="120x120"
+    href="https://duckduckgo.com/assets/icons/meta/DDG-iOS-icon_120x120.png" />
+  <link rel="apple-touch-icon" sizes="152x152"
+    href="https://duckduckgo.com/assets/icons/meta/DDG-iOS-icon_152x152.png" />
+  <link rel="image_src" href="https://duckduckgo.com/assets/icons/meta/DDG-icon_256x256.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css" />
+</head>
+
+<body>
+  <center>
+    <h1>Make your own LMDDGTFY link</h1>
+    <br />
+    <br />
+    <br />
+    <input type="text" onkeypress="build(this.value)" value="Hello World"></input>
+    <input type="text" onClick="this.select();document.execCommand('copy');" id="out"></input>
+  </center>
+  <script>
+    document.getElementById("out").value = "https://" + window.location.host + "/search?q=" + encodeURIComponent("Hello World");
+    function build(val) {
+      document.getElementById("out").value = "https://" + window.location.host + "/search?q=" + encodeURIComponent(val);
+    }
+  </script>
+</body>
+
+</html>
